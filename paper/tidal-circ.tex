@@ -1,4 +1,5 @@
 \documentclass[modern, letterpaper]{aastex62}
+% \documentclass[twocolumn, letterpaper]{aastex62}
 
 % to-do list
 % ----------
@@ -42,34 +43,45 @@
 \email{adrn@astro.princeton.edu}
 \correspondingauthor{Adrian M. Price-Whelan}
 
-\author[0000-0003-2866-9403]{David~W.~Hogg}
-\affiliation{Max-Planck-Institut f\"ur Astronomie,
-             K\"onigstuhl 17, D-69117 Heidelberg, Germany}
-\affiliation{Center for Cosmology and Particle Physics,
-             Department of Physics,
-             New York University, 726 Broadway,
-             New York, NY 10003, USA}
-\affiliation{Center for Data Science,
-             New York University, 60 Fifth Ave,
-             New York, NY 10011, USA}
-\affiliation{Flatiron Institute,
-             Simons Foundation,
-             162 Fifth Avenue,
-             New York, NY 10010, USA}
+% \author[0000-0003-2866-9403]{David~W.~Hogg}
+% \affiliation{Max-Planck-Institut f\"ur Astronomie,
+%              K\"onigstuhl 17, D-69117 Heidelberg, Germany}
+% \affiliation{Center for Cosmology and Particle Physics,
+%              Department of Physics,
+%              New York University, 726 Broadway,
+%              New York, NY 10003, USA}
+% \affiliation{Center for Data Science,
+%              New York University, 60 Fifth Ave,
+%              New York, NY 10011, USA}
+% \affiliation{Flatiron Institute,
+%              Simons Foundation,
+%              162 Fifth Avenue,
+%              New York, NY 10010, USA}
 
-\author[0000-0003-4996-9069]{Hans-Walter~Rix}
-\affiliation{Max-Planck-Institut f\"ur Astronomie,
-             K\"onigstuhl 17, D-69117 Heidelberg, Germany}
+% \author[0000-0003-4996-9069]{Hans-Walter~Rix}
+% \affiliation{Max-Planck-Institut f\"ur Astronomie,
+%              K\"onigstuhl 17, D-69117 Heidelberg, Germany}
 
 \begin{abstract}\noindent % trust me
 % Context
+Short-period binary stars tend to have circular orbits.
+Orbital circularization a strong function of convective layer size.
 % Aims
+A sample of binary star systems with giant star member
+Study circulariation vs. surface size.
 % Methods
 % Results
+Circularization timescale must be shorter than evolutionary timescale
 \end{abstract}
 
 \keywords{
-  binaries:~spectroscopic
+  binaries:~spectroscopic,
+  --
+  binaries:~close,
+  --
+  stars:~evolution,
+  --
+  stars:~interiors
 }
 
 \section{Introduction} \label{sec:intro}
@@ -80,48 +92,92 @@ compared to longer-period binaries of the same age (e.g.,
 \citealt{Mathieu:2005}).
 Within a given population of binaries, this manifests as an apparently steep
 transition from a distribution of eccentricities to mainly circularized orbits
-at some characteristic period that depends on the age and evolutionary state of
-the population (see, e.g., \figurename~5 in \citealt{Mathieu:2005})---i.e. above
-this critical value of the period (or log-period), systems have some
-distribution of eccentricities, and below the eccentricities are close to zero.
-Many studies have measured this ``circularization period,'' predominantly for
-main-sequence binaries (e.g., \citealt{Meibom:2006, Kjurkchieva:2017}), and
-have found that it tends to be between 5--20 days, depending on age (e.g.,
-\citealt{Mathieu:1988}).
+around some characteristic period that depends on the age and evolutionary state
+of the population (see, e.g., \figurename~5 in \citealt{Mathieu:2005}):
+Above this critical value of the period, systems have some distribution of
+eccentricities, and below the eccentricities are close to zero.  Many studies
+have measured this ``circularization period,'' predominantly for main-sequence
+binaries (e.g., \citealt{Meibom:2006, Kjurkchieva:2017}), and have found that it
+tends to be between 5--20 days, depending on age (e.g., \citealt{Mathieu:1988}).
 For giant stars, the circularization period appears to be longer, closer to
 $\approx 100$ days (\citealt{Mayor:1984}).
+These observed trends are likely a result of orbital circularization rather than
+a manifestation of binary star formation: The circularization or transition
+period appears to vary with the age of the population (\citealt{Meibom:2005}).
 
-Theories for the tidal circularization process generally rely on tidal
-dissipation via eddy viscosity in the convective regions of stars to explain
-this (e.g., \citealt{Zahn:1989}).
-The circularization timescale and period should therefore depend on the size of
-the convective region, and the stellar parameters of the primary star.
-RGB stars are therefore excellent test-cases for these theories, since
-they are fully-convective:
-By comparing to (small) samples of giant star binaries in open clusters, it
-seems that the circularization timescales predicted by eddy viscosity
-dissipation at least qualitatively scale to giant stars
-(\citealt{Verbunt:1995}).
+Theories that explain orbital circularization generally rely on tidal
+dissipation to explain and predict the timescales of this phenomenon (see
+\citealt{Mazeh:2007hp} for a review).
+For stars with deep convective zones (and especially evolved stars), the
+\emph{equilibrium tide theory} (\citealt{Zahn:1977, Zahn:1989}) has been shown
+to reasonably reproduce the circularization periods of a small sample of
+binaries with giant star members in open clusters (\citealt{Verbunt:1995}).
+In this theory, the tidal bulge induced on the primary (evolved) star will lag
+the orbital motion of the companion because of coupling of the tidal flow to
+turbulent eddies driven by convection.
+These eddies cause an effective viscosity in the convective region of the
+primary star, and the magnitude of this viscosity affects the amount of lag,
+which directly relates to the circularization timescale for a given binary
+system (\citealt{Zahn:1989}; also summarized in \citealt{Goodman:1997}).
 
-It is less clear what to expect for red clump (\RC) stars:
-RC stars are horizontal branch stars and have therefore already climbed the RGB.
-Short period, circularized companions in place before or while on the RGB could
-be engulfed, or will at least have been common-envelope with the evolving star.
-However, it is difficult to select samples of \RC\ stars to study this process
-because first-ascent RGB stars will have similar colors and stellar parameters.
-\citet{Verbunt:1995} argue that companion orbits may be a way to separate the
-two overlapping populations: eccentric, short-period orbits around stars near
-the red-clump should be first-ascent giants.
-\todo{Ask YS or Keith for RC/RGB classifications to test this idea.}
+The circularization timescale is also a strong function of the ratio of the
+binary separation, $a$, to the radius of the primary star, $R_1$ (assuming the
+primary has begun to evolve off the main sequence and the secondary remains a
+main-sequence star), with a scaling
+\begin{equation}
+    t_\textrm{circ} \propto \left(\frac{a}{R_1}\right)^8 \quad .
+\end{equation}
+Therefore for a given binary, even a change in primary radius between, for
+example, the main sequence and the subgiant phase of stars between
+$1$--$2~\msun$ corresponds to factors of $10^2$--$10^5$ reductions in the
+circularization timescale. \todo{Compute the change in convective layer size as
+star evolves into subgiant phase}.
+Once the primary becomes a giant and has an almost entirely convective envelope,
+the circularization timescale should drop even more substantially.
+\todo{Put some actual numbers in here...}
+For binary stars with periods $P \gtrsim 10~\textrm{day}$, we therefore expect
+orbital circularization to begin only as the primary begins to evolve.
+Further, if the circularization timescale remains short compared to the
+evolutionary timescale along the subgiant and giant branches, then the
+circularization period of a sample of binary stars should correlate with the
+radius or evolutionary state of the primary.
+
+Using a sample of binary star systems with at least one evolved member, we show
+that indeed the inferred circularization period is a function of the surface
+gravity of the primary star.
+Assuming that our sample contains a small range in primary stellar masses, this
+implies that there is a clear correlation between circularization period and
+evolved stellar radius.
+
+In \sectionname~\ref{sec:data}, we describe the original data source and catalog
+of binary star systems used in this work.
+In \sectionname~\ref{sec:results}, we show how the circularization period changes in bins of primary-star surface gravity.
+In \sectionname~\ref{sec:discussion}, we discuss \todo{...}
 
 \section{Data} \label{sec:data}
 
-We use inferred periods and eccentricities for XX
+To identify binaries, we use sources with repeat radial velocity measurements in
+data release 14 (\DR) of the \apogee\ survey
+(\citealt{Majewski:2017,Abolfathi:2017}), a component of the Sloan Digital Sky
+Survey IV (\sdssiv; \citealt{Gunn:2006,Blanton:2017}).
+A full description of our search methodology and binary star catalogs can be
+found in companion work (\citealt{Price-Whelan:2018}).
+
+Briefly, we use a custom-built Monte Carlo sampler (\package{The Joker};
+\citealt{Price-Whelan:2017}) to generate posterior samples over binary orbital
+parameters (period, eccentricity, etc.) for all stars with $\geq 3$ radial
+velocity measurements in \apogee\ \DR\ that pass a series of quality cuts.
+By making cuts on our posterior belief about the amplitude of radial velocity
+variations, we identified $\sim$5,000 binary star systems with at least one
+evolved star member.
+However, the majority of these systems have too few radial velocity measurements
+to uniquely determine the binary orbital parameters.
+Here, we only consider XX binary systems for which the period and eccentricity
+can be uniquely determined (the ``high-$K$, unimodal'' sample of
+\citealt{Price-Whelan:2018}).
 
 \section{Results}
 \label{sec:results}
-
-\subsection{Tidal circularization}
 
 The samples produced in this work provide excellent datasets to study tidal
 circularization of companions to giant stars across a range of ages and
@@ -174,7 +230,9 @@ companion mass assumptions used to compute $P_\textrm{surface}$ are invalid.
 \end{figure}
 
 
-\section{Discussion}
+\section{Discussion} \label{sec:discussion}
+
+- Low-ecc "spur" extends to larger periods. This could be: (a) systems where the companion already evolved (even more efficient), (b) systems that started with smaller ecc. to begin with, (c) ??
 
 
 \section{Conclusions}
