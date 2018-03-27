@@ -27,6 +27,8 @@
 \newcommand{\quantile}[2]{\ensuremath{\textrm{Q}_{#1}}\left(#2\right)}
 \newcommand{\pdf}{\textit{pdf}}
 
+\newcommand{\nunimodal}{322}
+
 % for response to referee
 % \renewcommand{\resp}[1]{#1}
 
@@ -172,8 +174,12 @@ variations, we identified $\sim$5,000 binary star systems with at least one
 evolved star member.
 However, the majority of these systems have too few radial velocity measurements
 to uniquely determine the binary orbital parameters.
-Here, we only consider XX binary systems for which the period and eccentricity
-can be uniquely determined (the ``high-$K$, unimodal'' sample of
+
+Here, we only consider \nunimodal\ binary systems for which the period and
+eccentricity can be uniquely determined (the ``high-$K$, unimodal'' sample of
+\citealt{Price-Whelan:2018}).
+We further subselect the \todo{XX} stars with $\logg > 2$ and that pass visual
+inspection (\texttt{clean\_flag == 0}; see \sectionname~5.2 in
 \citealt{Price-Whelan:2018}).
 
 \section{Results}
@@ -195,9 +201,8 @@ median over minimum companion masses $M_{2, \textrm{min}} = 0.5~\msun$.
 We then use the surface gravity, $\log g$, of the primary, and eccentricity to
 compute
 \begin{align}
-    P_{\textrm{surface}} &= \frac{2\pi \, G^{1/4}}{(1-e)^{-3/2}} \,
-        \left(\frac{M_1 + M_2}{M_1^{3/4}}\right) \,
-        10^{-3/4\,\log g}
+    P_{\textrm{surface}} &= 2\pi \, \left(\frac{M_1+M_2}{M_1}\right) \,
+        \left(\frac{G\,M_1}{R_1^3}\right)^{-1/2} \, \left(1-e\right)^{-3/2}
 \end{align}
 where we use $M_{2, \textrm{min}}$ as $M_2$.
 
