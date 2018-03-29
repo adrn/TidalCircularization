@@ -1,2 +1,7 @@
 LOGS
 photos
+*~
+*.o
+*.mod
+*.o*
+*.e*
