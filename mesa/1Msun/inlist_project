@@ -16,6 +16,8 @@
   ! display on-screen plots
     pgstar_flag = .true.
 
+    history_columns_file = 'history_columns_apw.list'
+
 / !end of star_job namelist
 
 
