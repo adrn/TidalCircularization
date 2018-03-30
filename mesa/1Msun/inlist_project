@@ -30,7 +30,7 @@
     log_g_lower_limit = 0.
 
     profile_interval = 50
-    max_num_profile_models = 5000
+    max_num_profile_models = 16
     write_header_frequency = 1
     history_interval = 1
     terminal_interval = 1

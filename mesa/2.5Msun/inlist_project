@@ -24,13 +24,13 @@
 &controls
 
   ! starting specifications
-    initial_mass = 1.5 ! in Msun units
+    initial_mass = 2.5 ! in Msun units
 
   ! stop when the star hits the top of the RGB
     log_g_lower_limit = 0.
 
     profile_interval = 50
-    max_num_profile_models = 5000
+    max_num_profile_models = 16
     write_header_frequency = 1
     history_interval = 1
     terminal_interval = 1
