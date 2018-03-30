@@ -26,8 +26,12 @@
 \newcommand{\RGB}{\acronym{RGB}}
 \newcommand{\quantile}[2]{\ensuremath{\textrm{Q}_{#1}}\left(#2\right)}
 \newcommand{\pdf}{\textit{pdf}}
+\newcommand{\logg}{\ensuremath{\log g}}
+\newcommand{\Teff}{\ensuremath{T_{\textrm{eff}}}}
+\newcommand{\med}[1]{\ensuremath{\textrm{med}\left(#1\right)}}
 
 \newcommand{\nunimodal}{322}
+\newcommand{\nclean}{234}
 
 % for response to referee
 % \renewcommand{\resp}[1]{#1}
@@ -95,7 +99,7 @@ compared to longer-period binaries of the same age (e.g.,
 Within a given population of binaries, this manifests as an apparently steep
 transition from a spread in eccentricities to mainly circularized orbits
 that occurs around some characteristic period (see, e.g., \figurename~5 in
-\citealt{Mathieu:2005});
+\citealt{Mathieu:2005}).
 This critical value of the period depends on the age and evolutionary state of
 the population.
 Many studies have measured the ``circularization period,'' predominantly for
@@ -130,14 +134,8 @@ main-sequence star), with a scaling
 \begin{equation}
     t_\textrm{circ} \propto \left(\frac{a}{R_1}\right)^8 \quad .
 \end{equation}
-Therefore for a given binary, even small changes in the size and mass of the
-convective region of the primary results in large changes in the circularization
-timescale.
-For example, \todo{Compute the change in mass in convective layer as
-star evolves into subgiant}.
-Once the primary becomes a giant and has an almost entirely convective envelope,
-the circularization timescale drops even more substantially.
-\todo{Put some actual numbers in here...}
+Therefore for a given binary, even small changes in the radius of the primary
+results in large changes in the circularization timescale.
 For binary stars with periods $P \gtrsim 10~\textrm{day}$, we therefore expect
 orbital circularization to begin only as the primary begins to evolve.
 Further, if the circularization timescale remains short compared to the
@@ -150,7 +148,7 @@ that indeed the inferred circularization period is a function of the surface
 gravity of the primary star.
 Assuming that our sample contains a small range in primary stellar masses, this
 implies that there is a clear correlation between circularization period and
-evolved stellar radius.
+evolved stellar radius or depth of the convective region.
 
 In \sectionname~\ref{sec:data}, we describe the original data source and catalog
 of binary star systems used in this work.
@@ -179,12 +177,79 @@ to uniquely determine the binary orbital parameters.
 Here, we only consider \nunimodal\ binary systems for which the period and
 eccentricity can be uniquely determined (the ``high-$K$, unimodal'' sample of
 \citealt{Price-Whelan:2018}).
-We further subselect the \todo{XX} stars with $\logg > 2$ and that pass visual
-inspection (\texttt{clean\_flag == 0}; see \sectionname~5.2 in
-\citealt{Price-Whelan:2018}).
+We further subselect the \nclean\ primary stars with $\logg > 2$ and that pass
+visual inspection (from previous work, \texttt{clean\_flag == 0}; see
+\sectionname~5.2 in \citealt{Price-Whelan:2018}).
+
+\section{Expectations from theory and prior work}
+\label{sec:theory}
+
+Tidal circularization should happen fast for binary star systems with a giant
+star member.
+TODO: explain Verbunt and Phinney paper in more detail (\citealt{Verbunt:1995}; hereafter VP95)
+
+Motivated by and following VP95, we generate a simulated population of binary
+star systems with primary stars that have similar stellar parameters to our
+sample of \apogee\ system primaries.
+We assume simple initial binary orbital parameter distributions (i.e. in period
+and eccentricity) and compute the change in eccentricity of the companion orbit
+as the primary star evolves off the main sequence using equilibrium tide theory
+(\citealt{Zahn:1966}, and see simplified expressions in VP95).
+
+In detail, we generate primary stellar masses, companion masses, and primary
+surface gravities by fitting two-component Gaussian mixture models (GMMs) to the
+stars in our sample with measurements of each, then re-sample using the fitted
+distributions.
+As described in previous work (\citealt{Price-Whelan:2018}), primary mass
+measurements come from \cite{Ness:2015}, (minimum) secondary masses come from
+the posterior samplings over orbital parameters using \apogee\ radial velocity
+data, and surface gravities come from the \apogee\ (\DR) data reduction pipeline
+(\citealt{Garcia-Perez:2016}).
+In our sample, the median primary mass, companion mass, and surface gravity are
+$\med{M_1} = 1.4~\msun$, $\med{M_{2, \textrm{min}}} = 0.4~\msun$, and
+$\med{\logg} = 3.1$.
+
+To follow the stellar evolution of the primary, we run stellar evolution models
+using \acronym{MESA} \citealt{Paxton:2011} for stars with $M = [1, 1.2, 1.4,
+1.6, 1.8, 2, 2.5, 3]~\msun$, from the pre-main-sequence phase until $\logg = 0$
+(i.e. near the tip of the giant branch); We assume solar metallicity for these
+simulations.
+At each timestep during the evolution, we output and store the standard stellar
+parameters along with the size and mass of the convective envelope.
+
+We discretize the primary masses generated from the GMMs onto the grid of masses
+for which we have \acronym{MESA} models, then use equilibrium tide theory to
+compute the change in eccentricity of the companion orbit.
+To do this, we integrate \equationname~\ref{} up to the phase of evolution at
+which the stellar model has the same (or closest) surface gravity to the
+simulated primary star.
+Here we assume that all stars are on their first ascent up the giant branch,
+which should underestimate the number of circularized systems with surface
+gravities $\logg \sim 2.5$ (i.e. near the red clump, where stars have already
+reached the tip of the giant branch).
+We also assume that the equilibrium tides dominate the circularization process
+for all systems and therefore ignore the effect of ``dynamical tides''
+(\citealt{who}) during the main sequence phase.
+Finally, following VP95, we also assume that the semi-major axis of the binary
+system stays constant as the eccentricity damps.
+
+\figurename~\ref{fig:XX} shows the initial (left) and final (middle and right)
+periods and eccentricities of the simulated systems.
+In the right panel, we normalize the orbital period by the orbital period of a
+hypothetical, massless companion whose pericentric distance grazes the surface
+of the primary star,
+\begin{align}
+    P_{\textrm{surface}} &= 2\pi \, \left(\frac{M_1+M_2}{M_1}\right) \,
+        \left(\frac{G\,M_1}{R_1^3}\right)^{-1/2} \, \left(1-e\right)^{-3/2}
+    \quad .
+\end{align}
+Markers are colored by the log-surface gravity, \logg, and the size indicates
+the mass of the primary.
 
 \section{Results}
 \label{sec:results}
+
+\figurename~\ref{fig:XX} shows orbital period and eccentricity
 
 The samples produced in this work provide excellent datasets to study tidal
 circularization of companions to giant stars across a range of ages and
@@ -201,10 +266,7 @@ this sample, $M_1 = 1.36~\msun$, and assume a companion mass also equal to the
 median over minimum companion masses $M_{2, \textrm{min}} = 0.5~\msun$.
 We then use the surface gravity, $\log g$, of the primary, and eccentricity to
 compute
-\begin{align}
-    P_{\textrm{surface}} &= 2\pi \, \left(\frac{M_1+M_2}{M_1}\right) \,
-        \left(\frac{G\,M_1}{R_1^3}\right)^{-1/2} \, \left(1-e\right)^{-3/2}
-\end{align}
+
 where we use $M_{2, \textrm{min}}$ as $M_2$.
 
 \figurename~\ref{fig:PeK}, left panel, shows this normalized orbital period and
@@ -238,7 +300,7 @@ companion mass assumptions used to compute $P_\textrm{surface}$ are invalid.
 
 \section{Discussion} \label{sec:discussion}
 
-- Low-ecc "spur" extends to larger periods. This could be: (a) systems where the companion already evolved (even more efficient), (b) systems that started with smaller ecc. to begin with, (c) ??
+- Low-ecc "spur" extends to larger periods. This could be: (a) systems where the companion already evolved (even more efficient), or (b) systems that started with smaller ecc. to begin with.
 
 
 \section{Conclusions}
@@ -250,6 +312,8 @@ companion mass assumptions used to compute $P_\textrm{surface}$ are invalid.
 It is a pleasure to thank
 Matteo Cantiello (Flatiron),
 Jeremy Goodman (Princeton),
+David W. Hogg (NYU/Flatiron/MPIA),
+Hans-Walter Rix (MPIA),
 and Joshua Winn (Princeton).
 
 The authors are pleased to acknowledge that the work reported on in this
