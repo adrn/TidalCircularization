@@ -153,6 +153,7 @@ primary, $q = M_2 / M_1$ is the binary mass ratio, $a$ is the binary semi-major
 axis, and $f$ is a dimensionless factor of order unity that depends on the
 convective and dissipative properties of the convective envelope
 (\citealt{Zahn:1977,Zahn:1989,Verbunt:1995}).
+Following \citet{Verbunt:1995}, we set $f=1$.
 
 The steep $\left(R_1 / a\right)^8$ scaling in \eqname~\ref{eq:tcirc}
 implies that, for a given binary, even small changes in the radius of the
@@ -306,6 +307,10 @@ compute the change in eccentricity and separation of the companion orbit.
 To do this, we solve the coupled differential equations \eqname
 s~\ref{eq:dlne}--\ref{eq:dlna} up to the phase of evolution at which the stellar
 model has the same (or closest) surface gravity to the simulated primary star.
+We use Euler's method with 10,000 time steps between the main sequence and the
+given final \logg\ of each primary star, and use linear interpolation to
+interpolate the \acronym{MESA} output stellar parameters onto the integration
+grid.
 We assume that all stars are on their first ascent up the giant branch, which
 should underestimate the number of circularized systems with surface gravities
 $\logg \sim 2.5$ (i.e. near the red clump, where stars have already reached the
@@ -371,9 +376,12 @@ primary stars have masses equal to the median mass over all stars with prior
 mass measurements in this sample, $M_1 = \med{M_1} = 1.36~\msun$, and all
 companions have masses equal to the median over minimum companion masses $M_2 =
 \med{M_{2, \textrm{min}}} = 0.5~\msun$.
-Based on our simulated population (\sectionname~\ref{sec:theory} and
-\figurename~\ref{fig:simulated}), we expect a sharp transition in eccentricity
-around $P/\Psurf \approx 10$, and indeed see ...
+The sharp transition in eccentricity around $P/\Psurf \approx 10$ apparent in
+\figurename~\ref{fig:PeK} (left) appears to be qualitatively consistent with the
+prediction from the simulated population visualized in
+\figurename~\ref{fig:simulated}.
+Right panel of \figurename~\ref{fig:PeK} shows the inferred radial velocity
+amplitude of the primary for these same systems.
 
 % Notebook: Results
 \begin{figure}[h]
@@ -414,6 +422,25 @@ companion mass assumptions used to compute $P_\textrm{surface}$ are invalid.
 }
 \end{figure}
 
+Assuming that the semi-major axes of the \apogee\ binaries have remained
+constant, and with assumptions about the primary and companion masses, we can
+also compute the expected change in eccentricity, $\Delta \ln e$, for each
+binary (see also \figurename~4 in \citealt{Verbunt:1995}).
+To compute this quantity for all systems, we assume that the primary mass is
+$M_1 = 1.4~\msun$ and the companion mass is $M_2 = 0.5~\msun$, close to the
+median values for the systems where these masses are measured.
+We use the $1.4~\msun$ \acronym{MESA} model to integrate \equation~\ref{eq:dlne}
+up to the measured \logg\ of the primary star, again using 10,000 time steps,
+and linear interpolation to compute the stellar parameters at each time step.
+
+\figurename~\ref{fig:dlne} shows the expected change in eccentricity plotted
+against the observed eccentricity for all of the \apogee\ binaries.
+With the exception of a few outliers, systems that are predicted to have large
+negative changes to the log-eccentricity are circular.
+% Like \citet{Verbunt:1995}, we find that the dimensionless parameter $f$ is consistent with unity, indicating that tidal circularization of binaries with giant star members is at least qualitatively
+
+TODO: caveats with the above. Stars have a range of masses, companions. But overall looks good and consistent with VP95!
+
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=\textwidth]{dlne}
@@ -423,8 +450,6 @@ TODO:
 \label{fig:dlne}
 }
 \end{figure}
-
-TODO: similar to VP95 figure 4, compute $\Delta \ln e$ for our systems and plot e vs dlne.
 
 \section{Discussion} \label{sec:discussion}
 
