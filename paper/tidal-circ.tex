@@ -360,12 +360,13 @@ Our sample of binaries contains primary stars with a range of stellar parameters
 (\figurename~\ref{fig:logg-teff-m1}), and therefore a range of expected
 circularization periods.
 \figurename~\ref{fig:P-e-grid} shows orbital period and eccentricity for all
-systems in bins of primary surface gravity.
+systems in bins of primary surface gravity:
 From top left to bottom right shows bins of decreasing surface gravity, i.e.
 from subgiants to giant branch stars.
 Vertical dashed lines at $10~\textrm{day}$ and $100~\textrm{day}$ are meant as
-reference lines: Note the steadily increasing circularization period from top
-left to bottom right as the typical size of the primary increases.
+reference lines.
+Note the steadily increasing circularization period from top left to bottom
+right as the typical size of the primary increases.
 
 To compare with predictions from the simulated systems
 (\sectionname~\ref{sec:theory}) and to remove the dependence on the size of
@@ -373,9 +374,9 @@ the primary, \figurename~\ref{fig:PeK} (left) shows normalized period and
 eccentricity for all systems.
 We compute \Psurf\ (\eqname~\ref{eq:Psurf}) for all systems by assuming that all
 primary stars have masses equal to the median mass over all stars with prior
-mass measurements in this sample, $M_1 = \med{M_1} = 1.36~\msun$, and all
-companions have masses equal to the median over minimum companion masses $M_2 =
-\med{M_{2, \textrm{min}}} = 0.5~\msun$.
+mass measurements in this sample, $\med{M_1} = 1.36~\msun$, and all companions
+have masses equal to the median over minimum companion masses $\med{M_{2,
+\textrm{min}}} = 0.5~\msun$.
 The sharp transition in eccentricity around $P/\Psurf \approx 10$ apparent in
 \figurename~\ref{fig:PeK} (left) appears to be qualitatively consistent with the
 prediction from the simulated population visualized in
@@ -429,7 +430,7 @@ binary (see also \figurename~4 in \citealt{Verbunt:1995}).
 To compute this quantity for all systems, we assume that the primary mass is
 $M_1 = 1.4~\msun$ and the companion mass is $M_2 = 0.5~\msun$, close to the
 median values for the systems where these masses are measured.
-We use the $1.4~\msun$ \acronym{MESA} model to integrate \equation~\ref{eq:dlne}
+We use the $1.4~\msun$ \acronym{MESA} model to integrate \eqname~\ref{eq:dlne}
 up to the measured \logg\ of the primary star, again using 10,000 time steps,
 and linear interpolation to compute the stellar parameters at each time step.
 
@@ -438,8 +439,6 @@ against the observed eccentricity for all of the \apogee\ binaries.
 With the exception of a few outliers, systems that are predicted to have large
 negative changes to the log-eccentricity are circular.
 % Like \citet{Verbunt:1995}, we find that the dimensionless parameter $f$ is consistent with unity, indicating that tidal circularization of binaries with giant star members is at least qualitatively
-
-TODO: caveats with the above. Stars have a range of masses, companions. But overall looks good and consistent with VP95!
 
 \begin{figure}[h]
 \begin{center}
@@ -452,6 +451,8 @@ TODO:
 \end{figure}
 
 \section{Discussion} \label{sec:discussion}
+
+- TODO: caveats with the assumptions about primary mass above. Stars have a range of masses, companions. But overall looks good and consistent with VP95!
 
 - Low-ecc "spur" extends to larger periods. This could be: (a) systems where the companion already evolved (even more efficient), (b) systems that started with smaller ecc. to begin with, (c) red clump stars - circularized at TRGB.
 
@@ -494,8 +495,8 @@ University Office of Information Technology's Research Computing department.
     \package{scipy} (\url{https://www.scipy.org/}),
     \package{schwimmbad} (\citealt{Price-Whelan:2017a}),
     \package{sqlalchemy} (\url{https://www.sqlalchemy.org/}),
-    \package{thejoker} (\citealt{Price-Whelan:2017b}),
-    \package{twobody} (\todo{twobody zenodo}).
+    \package{thejoker} (\citealt{Price-Whelan:2017b}).
+    % \package{twobody} (\todo{twobody zenodo}).
 }
 
 \facility{\sdssiv, \apogee}
