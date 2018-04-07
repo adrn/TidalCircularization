@@ -215,9 +215,9 @@ eccentricity can be uniquely determined (the ``high-$K$, unimodal'' sample of
 We further subselect the \nclean\ primary stars with $\logg > 2$ and that pass
 visual inspection (from previous work, \texttt{clean\_flag == 0}; see
 \sectionname~5.2 in \citealt{Price-Whelan:2018}).
-\figurename~\ref{fig:logg-teff-m1} (left) shows the stellar parameters for all
+\figurename~\ref{fig:apogee} (left) shows the stellar parameters for all
 \nclean\ primary stars in the sample used in this work.
-\figurename~\ref{fig:logg-teff-m1} (right) shows the distribution of primary
+\figurename~\ref{fig:apogee} (middle) shows the distribution of primary
 masses for the 68 systems with masses from \cite{Ness:2015}.
 
 % Notebook: Period-eccentricity
@@ -229,9 +229,12 @@ masses for the 68 systems with masses from \cite{Ness:2015}.
 \textit{Left}: Stellar parameters for all \nclean\ systems used in this work.
 Effective temperatures, \Teff, and surface gravities, \logg, are from the
 \apogee\ \DR\ catalog.
-\textit{Right}: Primary masses for 68 systems used in this work with masses
-estimated in cite{Ness:2015}.
-\label{fig:logg-teff-m1}
+\textit{Middle}: Primary masses for 68 systems with masses estimated in
+\cite{Ness:2015}.
+\textit{Right}: Minimum mass ratios computed using primary masses from
+\cite{Ness:2015} and companion masses estimated from orbital parameters from
+\cite{Price-Whelan:2018}.
+\label{fig:apogee}
 }
 \end{figure}
 
@@ -292,7 +295,7 @@ parameters along with the size and mass of the convective envelope.
 % Notebook: Simulated population
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=0.6\textwidth]{mesa}
+\includegraphics[width=0.5\textwidth]{mesa}
 \end{center}
 \caption{%
 Evolutionary tracks of the eight stellar models we use to simulate the orbital
@@ -361,7 +364,7 @@ companion whose orbit grazes the surface of the primary star at pericenter.
 \label{sec:results}
 
 Our sample of binaries contains primary stars with a range of stellar parameters
-(\figurename~\ref{fig:logg-teff-m1}), and therefore a range of expected
+(\figurename~\ref{fig:apogee}), and therefore a range of expected
 circularization periods.
 \figurename~\ref{fig:P-e-grid} shows orbital period and eccentricity for all
 systems in bins of primary surface gravity:
@@ -373,18 +376,35 @@ Note the steadily increasing circularization period from top left to bottom
 right as the typical size of the primary increases.
 
 To compare with predictions from the simulated systems
-(\sectionname~\ref{sec:theory}) and to remove the dependence on the size of
-the primary, \figurename~\ref{fig:PeK} (left) shows normalized period and
-eccentricity for all systems.
-We compute \Psurf\ (\eqname~\ref{eq:Psurf}) for all systems by assuming that all
-primary stars have masses equal to the median mass over all stars with prior
-mass measurements in this sample, $\med{M_1} = 1.36~\msun$, and all companions
-have masses equal to the median over minimum companion masses $\med{M_{2,
-\textrm{min}}} = 0.5~\msun$.
+(\sectionname~\ref{sec:theory}), we must make several assumptions about the binary systems in our sample:
+\begin{description}
+    \item[Primary/companion masses] Only a small fraction of the systems in our
+    sample have measured primary masses (\figurename~\ref{fig:apogee}) and
+    therefore have measured (minimum) mass ratios.
+    For those systems, the distributions are strongly peaked at specific masses.
+    We therefore make the simplifying assumption that all primary stars have
+    masses equal to the median mass over all stars with prior mass measurements
+    in this sample, $\med{M_1} = 1.36~\msun$, and all companions have masses
+    equal to the median over minimum companion masses $\med{M_{2, \textrm{min}}}
+    = 0.5~\msun$.
+    \item[Primary evolved first] We assume that the primary star (i.e. the
+    observed star) is the first member of the binary to evolve off the main
+    sequence.
+    \item[First ascent] We assume that all primary stars are on their first
+    ascent up the giant branch.
+    This is motivated by the small fraction of red clump stars in our sample:
+    Only 7 of the primaries were identified as confident red clump stars in a
+    recent study of \apogee\ \DR\ evolved star (\citealt{Ting:2018}).
+\end{description}
+
+To compare with predictions from the simulated systems
+(\sectionname~\ref{sec:theory}) and to remove the dependence on the size of the
+primary, \figurename~\ref{fig:PeK} (left) shows normalized period and
+eccentricity for all systems, with \Psurf\ (\eqname~\ref{eq:Psurf}) computed
+under the assumptions listed above.
 The sharp transition in eccentricity around $P/\Psurf \approx 10$ apparent in
-\figurename~\ref{fig:PeK} (left) appears to be qualitatively consistent with the
-prediction from the simulated population visualized in
-\figurename~\ref{fig:simulated}.
+\figurename~\ref{fig:PeK} (left) is qualitatively consistent with the prediction
+from the simulated population visualized in \figurename~\ref{fig:simulated}.
 Right panel of \figurename~\ref{fig:PeK} shows the inferred radial velocity
 amplitude of the primary for these same systems.
 
@@ -412,13 +432,12 @@ decreasing \logg.
 \includegraphics[width=\textwidth]{P-e-K}
 \end{center}
 \caption{%
-\textit{Left panel:} Orbital period and eccentricity for all high-$K$ unimodal
-systems with $\log g > 2$, with period values normalized by the orbital period
-of a hypothetical companion at the surface of each primary star,
+\textit{Left panel:} Orbital period and eccentricity for binary star systems
+with evolved star members, with period values normalized by the orbital period
+of a hypothetical companion that grazes the surface of each primary star,
 $P_{\textrm{surface}}$, assuming $M_1 = 1.36~\msun$ and $M_2 = 0.5~\msun$.
-Stars in the \apogee\ \DR\ red clump catalog are outlined in red.
 The sharp transition from eccentric systems to almost all circular orbits at
-$P/P_\textrm{surface} \approx 7$ is likely an outcome of tidal circularization.
+$P/P_\textrm{surface} \approx 10$ is likely an outcome of tidal circularization.
 \textit{Right panel:} Normalized period and inferred radial velocity amplitude
 for the same systems.
 Points below $P/P_\textrm{surface} = 1$ are likely systems where the primary and
@@ -431,12 +450,11 @@ Assuming that the semi-major axes of the \apogee\ binaries have remained
 constant, and with assumptions about the primary and companion masses, we can
 also compute the expected change in eccentricity, $\Delta \ln e$, for each
 binary (see also \figurename~4 in \citealt{Verbunt:1995}).
-To compute this quantity for all systems, we assume that the primary mass is
-$M_1 = 1.4~\msun$ and the companion mass is $M_2 = 0.5~\msun$, close to the
-median values for the systems where these masses are measured.
-We use the $1.4~\msun$ \acronym{MESA} model to integrate \eqname~\ref{eq:dlne}
-up to the measured \logg\ of the primary star, again using 10,000 time steps,
-and linear interpolation to compute the stellar parameters at each time step.
+To compute this quantity for all systems, we again use the assumptions listed
+above, and use the $M_1 = 1.4~\msun$ \acronym{MESA} model to integrate
+\eqname~\ref{eq:dlne} up to the measured \logg\ of the primary star, again using
+10,000 time steps, and linear interpolation to compute the stellar parameters at
+each time step.
 
 \figurename~\ref{fig:dlne} shows the expected change in eccentricity plotted
 against the observed eccentricity for all of the \apogee\ binaries.
@@ -466,19 +484,72 @@ eccentricities, with the exception of a few outlier systems.
 
 \section{Discussion} \label{sec:discussion}
 
-- TODO: caveats with the assumptions about primary mass above. Stars have a range of masses, companions. But overall looks good and consistent with VP95!
+\subsection{Assumptions}
 
-- Low-ecc "spur" extends to larger periods. This could be: (a) systems where the companion already evolved (even more efficient), (b) systems that started with smaller ecc. to begin with, (c) red clump stars - circularized at TRGB.
+Here we return to the assumptions made above and assess their applicability:
+\begin{description}
+    \item[Primary/companion masses] Most of the systems in our sample of
+    binaries have unmeasured primary or companion masses.
+    In computing the normalization period, \Psurf, and to estimate the predicted
+    change in eccentricity, $\Delta \ln e$, we have thus made simple assumptions
+    about the binary component masses (see \emph{Primary/companion masses}
+    above).
+    It is therefore interesting that we see such a sharp transition in the
+    eccentricity distribution (e.g., \figurename~\ref{fig:PeK}, left panel), and
+    good agreement with predictions from population synthesis and evolution of
+    the simulated binaries (\sectionname~\ref{sec:theory}).
+    However, this can be understood given the scaling of the circularization
+    timescale (\eqname~\ref{eq:tcirc}) and the mass distribution of stars with
+    measured masses (\figurename~\ref{fig:apogee})
 
-- Outliers? Short-period but eccentric systems?
+    Assuming a mass ratio $q = 0.3$, the circularization timescale close to the
+    circularization period, $P / \Psurf \approx 10$, is very small compared to
+    the lifetime on the giant branch $t_\textrm{circ} \sim 10^5~\textrm{yr}$.
+    This quantity scales with the inverse mass ratio squared and the cubed-root
+    of the primary mass, $t_\textrm{circ} \propto M_1^{1/3} \, \left[ q \, (1 +
+    q) \right]^{-1}$:
+    The small spread in primary masses can therefore be neglected, and
+    variations in the mass ratio by typical factors of $\sim 2$ still lead to
+    circularization timescales that are much shorter than the giant branch
+    lifetime.
+    For the sample of binaries considered here, the simple assumptions about
+    primary and companion masses are therefore reasonable.
+    \item[Primary evolved first] All of the binaries in our sample appear to be
+    single-lined (from visual inspection of the \apogee\ spectra).
+    Therefore, if the companion evolved first, it would now be a stellar
+    remnant, and its evolution as a giant would have contributed significantly
+    to the orbital circularization.
+    Only 4 of the systems with measured masses have minimum mass ratios above 1,
+    indicating a possible neutron star or black hole companion.
+    However, an unknown fraction could have white dwarf companions.
+    Still, the majority of systems in the subset with measured masses are
+    consistent with low-mass main sequence companions.
+    \item[First ascent] As mentioned above, only 7 of the primary stars in our
+    sample are likely red clump stars (\citealt{Ting:2018}), and these systems
+    all have periods between $120$--$1000~\textrm{day}$.
+    This is possibly because shorter period companions would have been
+    common-envelope and therefore engulfed when the evolved star reached the tip
+    of the red giant branch (e.g., \citealt{Nordhaus:2010}).
+    We therefore consider this to be a reasonable assumption.
+\end{description}
+
+\subsection{\apogee\ data}
 
 - Incompleteness at high eccentricity: APOGEE sampling
-
-- Gaia RV's end of mission
 
 - Expand to SB2 as well
 
 - Large spectroscopic surveys (SDSS V) can do binary star science
+
+\subsection{Exceptional systems}
+
+- Outliers? Short-period but eccentric systems?
+
+- Low-ecc "spur" extends to larger periods. This could be: (a) systems where the companion already evolved (even more efficient), (b) systems that started with smaller ecc. to begin with, (c) red clump stars - circularized at TRGB.
+
+\subsection{Future prospects}
+
+- Gaia RV's end of mission
 
 \section{Conclusions}
 
@@ -490,7 +561,7 @@ contain an evolved primary star that dominates the luminosity of the system, and
 thus these systems are predominantly single-lined spectroscopic binaries.
 The systems have a range of orbital periods and the primaries have a range of
 surface gravities, indicating that they are a mix of subgiant, giant branch, and
-red clump stars (\figurename~\ref{fig:logg-teff-m1}).
+red clump stars (\figurename~\ref{fig:apogee}).
 
 As has been seen in many other samples of binary star systems, we find that the
 short period systems have small or zero eccentricities, but above a
