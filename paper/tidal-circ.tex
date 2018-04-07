@@ -324,7 +324,7 @@ $\logg \sim 2.5$ (i.e. near the red clump, where stars have already reached the
 tip of the giant branch).
 We assume that the equilibrium tides dominate the circularization process for
 all systems and therefore ignore the effect of ``dynamical tides''
-(\citealt{who}) during the main sequence phase.
+(e.g., \citealt{Goodman:1998}) during the main sequence phase.
 Finally, we assume that all of our systems are detached binaries.
 
 \figurename~\ref{fig:simulated} (middle) shows the final periods and
@@ -533,23 +533,59 @@ Here we return to the assumptions made above and assess their applicability:
     We therefore consider this to be a reasonable assumption.
 \end{description}
 
-\subsection{\apogee\ data}
-
-- Incompleteness at high eccentricity: APOGEE sampling
-
-- Expand to SB2 as well
-
-- Large spectroscopic surveys (SDSS V) can do binary star science
+% \subsection{\apogee\ data}
+%
+% - Incompleteness at high eccentricity: APOGEE sampling
+%
+% - Expand to SB2 as well
 
 \subsection{Exceptional systems}
 
-- Outliers? Short-period but eccentric systems?
+There are 10 systems with $e > 0.1$ and $P/\Psurf < 6$ apparent in \figurename
+s~\ref{fig:PeK} and \ref{fig:dlne}.
+These binaries have short periods and large eccentricities that appear to be
+discrepant with our conclusions made about tidal circularization.
+Of these 10 systems, 6 have the warning flag \texttt{SUSPECT\_BROAD\_LINES} from
+the \apogee\ pipeline, which suggests that these primary stars are either fast
+rotators (i.e. young) or may contain blended light from the companion star; The
+inferred eccentricities for these systems may therefore be biased.
+The remaining 4 systems are listed in \tablename~\ref{tbl:except} and warrant
+further study to understand why they have not circularized.
 
-- Low-ecc "spur" extends to larger periods. This could be: (a) systems where the companion already evolved (even more efficient), (b) systems that started with smaller ecc. to begin with, (c) red clump stars - circularized at TRGB.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ c c c c c }
+    \hline
+    \texttt{APOGEE\_ID} & \logg\ & \Teff\ [K] & $P$ [day] & $e$ \\
+    \hline
+    2M05272385+1246432 & 3.55 & 4791 & 1.05 & 0.15\\
+    2M11482364+3504215 & 3.47 & 4440 & 3.69 & 0.32\\
+    2M15042105+2700026 & 2.41 & 4663 & 36.68 & 0.61\\
+    2M16503620-0054432 & 3.52 & 5010 & 3.98 & 0.38\\
+    \hline
+    \end{tabular}
+    \caption{Four systems that have small ratios $P/\Psurf$ but still have
+    significant eccentricities.
+    Stellar parameters are for the primary (observed) member of the systems.
+    In all cases, the reported uncertainties on the surface gravities are small
+    $\sigma_{\logg} < 0.1$.
+    }
+    \label{tbl:except}
+\end{table}
 
-\subsection{Future prospects}
+Another interesting set of systems have negligible measured eccentricities with
+periods between $10 < P < 100~\textrm{day}$ (see top middle and right panels of
+\figurename~\ref{fig:P-e-grid}).
+Analogs of these systems are also seen in the simulated population in the middle
+panel of \figurename~\ref{fig:simulated}: In the simulated population, these are
+simply systems that started with lower eccentricities and thus can evolve faster
+to $e \approx 0$.
+In the observed systems, we expect the ``spur'' of low-eccentricity systems at
+periods longer than the circularization period to be a mix of systems that
+started with lower eccentricity, systems in which the companion has already
+evolved, and a minority of red clump stars that circularized when the primary
+was at the tip of the giant branch.
 
-- Gaia RV's end of mission
 
 \section{Conclusions}
 
@@ -579,6 +615,17 @@ We find that the eccentricities and observed circularization periods of binary
 star systems with evolved star members can be explained using standard tidal
 circularization theory for stars with significant convective envelopes
 (\citealt{Zahn:1977, Zahn:1989, Verbunt:1995}).
+
+The \apogee\ survey was not designed to do binary star science
+(\citealt{Majewski:2017}), but has enabled a wealth of stellar companion studies
+because it returns to fields as a part of its survey strategy
+(\citealt{Troup:2016, Badenes:2018, Price-Whelan:2018}).
+Future data releases from \apogee\ will provide more visits for current stars
+and nearly twice as many sources, which will allow more detailed studies of
+tidal circularization and other binary star phenomena.
+However, for bright stars, the end-of-mission data release of the \project{Gaia}
+mission will revolutionize binary star science by providing time-series radial
+velocity information for nearly 100 million stars.
 
 \acknowledgements
 
