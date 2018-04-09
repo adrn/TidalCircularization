@@ -1,6 +1,13 @@
 \documentclass[modern, letterpaper]{aastex62}
 % \documentclass[twocolumn, letterpaper]{aastex62}
 
+% TODO:
+% - Present data before simulations?
+% - In discussion mention thermalized p(e) = 2e vs. observed issue
+% - For simulated sample, high e, low P/Psurf - comment on Hut 1981
+% - Add P/Psurf to table 1
+% - For eccentric, low P/Psurf systems: mention Kozai-Lidov
+
 \include{gitstuff}
 \include{preamble}
 
@@ -44,6 +51,10 @@
 \email{adrn@astro.princeton.edu}
 \correspondingauthor{Adrian M. Price-Whelan}
 
+\author[0000-0002-6710-7748]{Jeremy~Goodman}
+\affiliation{Department of Astrophysical Sciences,
+             Princeton University, Princeton, NJ 08544, USA}
+
 % \author[0000-0003-2866-9403]{David~W.~Hogg}
 % \affiliation{Max-Planck-Institut f\"ur Astronomie,
 %              K\"onigstuhl 17, D-69117 Heidelberg, Germany}
@@ -69,24 +80,22 @@ Short-period binary star systems dissipate orbital energy through tidal
 interactions that lead to tighter, more circular orbits.
 When at least one star in a binary has evolved off of the main sequence, orbital
 circularization occurs for longer-period ($\approx 100~\textrm{day}$) systems.
-It has been shown that the orbital parameters and the circularization periods of
-a small sample of binary stars with evolved star members can be understood
-within the context of standard tidal circularization theory.
+Past work by \citet{Verbunt:1995} has shown that the orbital parameters and the
+circularization periods of a small sample of binary stars with evolved-star
+members can be understood within the context of standard tidal circularization
+theory.
 % Aims
 Using a sample of binaries with subgiant, giant, and red clump star members that
-is nearly an order of magnitude larger in size relative to previous work, we
-reexamine predictions for tidal circularization of binary stars with evolved
-star members.
+is nearly an order of magnitude larger, we reexamine predictions for tidal
+circularization of binary stars with evolved members.
 % Methods
 % Results
-We confirm that, using equilibrium tide theory, systems predicted to have
-circularized generally have negligible measured eccentricities.
-We additionally show that the circularization period is correlated with the
-surface gravity (i.e. size) of the evolved star member, indicating that the
-circularization timescale must be shorter than the evolutionary timescale along
-the giant branch.
-A few systems are exceptions to the conclusions above and are mentioned in the
-discussion.
+We confirm that systems predicted by equilibrium-tide theory to have circular
+orbits generally have negligible measured eccentricities.
+The circularization period is correlated with the surface gravity (i.e. size) of
+the evolved member, indicating that the circularization timescale must be
+shorter than the evolutionary timescale along the giant branch.
+A few exceptions to the conclusions above are mentioned in the discussion.
 
 \end{abstract}
 
@@ -123,7 +132,7 @@ period appears to vary with the age of the population (\citealt{Meibom:2005}).
 
 Theories that explain orbital circularization generally rely on tidal
 dissipation to explain and predict the timescales of this phenomenon (see
-\citealt{Mazeh:2007hp} for a review).
+\citealt{Mazeh:2007hp, Zahn:2008} for recent reviews).
 For stars with deep convective zones (and especially evolved stars), the
 equilibrium tide theory for circularization (\citealt{Zahn:1977, Zahn:1989}) has
 been shown to reasonably reproduce the circularization periods of a small sample
@@ -134,7 +143,7 @@ turbulent eddies driven by convection.
 These eddies cause an effective viscosity in the convective region of the
 primary star, and the magnitude of this viscosity affects the amount of lag,
 which directly relates to the circularization timescale for a given binary
-system (\citealt{Zahn:1989}; also summarized in \citealt{Goodman:1997}).
+system (\citealt{Zahn:1989}).
 This viscous dissipation of orbital energy acts to synchronize and circularize a
 binary system (\citealt{Zahn:1977, Zahn:1989}).
 
@@ -156,8 +165,11 @@ where $L_1, M_1, R_1$ are the luminosity, mass, and radius of the primary
 primary, $q = M_2 / M_1$ is the binary mass ratio, $a$ is the binary semi-major
 axis, and $f$ is a dimensionless factor of order unity that depends on the
 convective and dissipative properties of the convective envelope
-(\citealt{Zahn:1977,Zahn:1989,Verbunt:1995}).
+(\citealt{Zahn:1977, Zahn:1989, Verbunt:1995}).
 Following \citet{Verbunt:1995}, we set $f=1$.
+Note that the expressions above are derived assuming $e \ll 1$:
+$t_\textrm{circ}$ is expected to be somewhat shorter for high-eccentricity
+systems (e.g., \citealt{Hut:1981}).
 
 The steep $\left(R_1 / a\right)^8$ scaling in \eqname~\ref{eq:tcirc}
 implies that, for a given binary, even small changes in the radius of the
@@ -205,14 +217,14 @@ parameters (period, eccentricity, etc.) for all stars with $\geq 3$ radial
 velocity measurements in \apogee\ \DR\ that pass a series of quality cuts.
 By making cuts on our posterior belief about the amplitude of radial velocity
 variations, we identified $\sim$5,000 binary star systems with at least one
-evolved star member.
+evolved member.
 However, the majority of these systems have too few radial velocity measurements
 to uniquely determine the binary orbital parameters.
 
-Here, we only consider \nunimodal\ binary systems for which the period and
+Here, we consider only \nunimodal\ binary systems for which the period and
 eccentricity can be uniquely determined (the ``high-$K$, unimodal'' sample of
 \citealt{Price-Whelan:2018}).
-We further subselect the \nclean\ primary stars with $\logg > 2$ and that pass
+We further subselect the \nclean\ primary stars with $\logg > 2$ that pass
 visual inspection (from previous work, \texttt{clean\_flag == 0}; see
 \sectionname~5.2 in \citealt{Price-Whelan:2018}).
 \figurename~\ref{fig:apogee} (left) shows the stellar parameters for all
@@ -299,7 +311,7 @@ parameters along with the size and mass of the convective envelope.
 \end{center}
 \caption{%
 Evolutionary tracks of the eight stellar models we use to simulate the orbital
-evolution of a population of binary star systems with an evolved star member.
+evolution of a population of binary star systems with an evolved member.
 Horizontal axis shows the effective temperature, $T_\textrm{eff}$, and vertical
 axis shows the log-surface-gravity, \logg.
 Tracks are colored by the mass of the star.
@@ -314,10 +326,10 @@ compute the change in eccentricity and separation of the companion orbit.
 To do this, we solve the coupled differential equations \eqname
 s~\ref{eq:dlne}--\ref{eq:dlna} up to the phase of evolution at which the stellar
 model has the same (or closest) surface gravity to the simulated primary star.
-We use Euler's method with 10,000 time steps between the main sequence and the
-given final \logg\ of each primary star, and use linear interpolation to
-interpolate the \acronym{MESA} output stellar parameters onto the integration
-grid.
+We use the first-order Euler method with 10,000 time steps between the main
+sequence and the given final \logg\ of each primary star, and use linear
+interpolation to interpolate the \acronym{MESA} output stellar parameters onto
+the integration grid.
 We assume that all stars are on their first ascent up the giant branch, which
 should underestimate the number of circularized systems with surface gravities
 $\logg \sim 2.5$ (i.e. near the red clump, where stars have already reached the
@@ -433,15 +445,13 @@ decreasing \logg.
 \end{center}
 \caption{%
 \textit{Left panel:} Orbital period and eccentricity for binary star systems
-with evolved star members, with period values normalized by the orbital period
+with evolved members, with period values normalized by the orbital period
 of a hypothetical companion that grazes the surface of each primary star,
 $P_{\textrm{surface}}$, assuming $M_1 = 1.36~\msun$ and $M_2 = 0.5~\msun$.
 The sharp transition from eccentric systems to almost all circular orbits at
 $P/P_\textrm{surface} \approx 10$ is likely an outcome of tidal circularization.
 \textit{Right panel:} Normalized period and inferred radial velocity amplitude
 for the same systems.
-Points below $P/P_\textrm{surface} = 1$ are likely systems where the primary and
-companion mass assumptions used to compute $P_\textrm{surface}$ are invalid.
 \label{fig:PeK}
 }
 \end{figure}
@@ -609,10 +619,10 @@ hypothetical companion whose orbit just grazes the surface of the primary star
 (i.e. to remove the dependence on the primary star size), we find a steep
 transition from eccentric to circular orbits that occurs around $P / \Psurf
 \approx 10$.
-This predicted circularization period is consistent with theoretical predictions
-(\figurename~\ref{fig:simulated}):
+This dimensionless circularization period is consistent with theoretical
+predictions (\figurename~\ref{fig:simulated}):
 We find that the eccentricities and observed circularization periods of binary
-star systems with evolved star members can be explained using standard tidal
+star systems with evolved members can be explained using standard tidal
 circularization theory for stars with significant convective envelopes
 (\citealt{Zahn:1977, Zahn:1989, Verbunt:1995}).
 
