@@ -2,10 +2,6 @@
 % \documentclass[twocolumn, letterpaper]{aastex62}
 
 % TODO:
-% - Present data before simulations?
-% - In discussion mention thermalized p(e) = 2e vs. observed issue
-% - For simulated sample, high e, low P/Psurf - comment on Hut 1981
-% - Add P/Psurf to table 1
 % - For eccentric, low P/Psurf systems: mention Kozai-Lidov
 
 \include{gitstuff}
@@ -253,7 +249,7 @@ distribution of primary masses for the 68 systems with masses from
 systems.
 
 
-\section{Evidence for orbital circularization}
+\section{Orbital circularization of \apogee\ binaries}
 \label{sec:results}
 
 Our sample of binaries contains primary stars with a range of stellar parameters
@@ -287,8 +283,8 @@ We compute \Psurf\ for all systems under the following assumptions:
     We therefore make the simplifying assumption that all primary stars have
     masses equal to the median mass over all stars with prior mass measurements
     in this sample, $\med{M_1} = 1.36~\msun$, and all companions have masses
-    equal to the median over minimum companion masses $\med{M_{2, \textrm{min}}}
-    = 0.5~\msun$.
+    equal to the median over minimum companion masses, $\med{M_{2,
+    \textrm{min}}} = 0.5~\msun$.
     \item[Primary evolved first] We assume that the primary star (i.e. the
     observed star) is the first member of the binary to evolve off the main
     sequence.
@@ -336,15 +332,14 @@ for the same systems.
 \end{figure}
 
 Assuming that the semi-major axes of the \apogee\ binaries have remained
-constant, and with assumptions about the primary and companion masses, we can
-also compute the expected change in eccentricity, $\Delta \ln e$, for each
-binary (see also \figurename~4 in \citealt{Verbunt:1995}).
-To compute this quantity for all systems, we again use the assumptions listed
-above, and use a model stellar evolution track to integrate
-\eqname~\ref{eq:dlne} up to the measured \logg\ of the primary star.
+constant, and with the assumptions above, we can also compute the expected
+change in eccentricity, $\Delta \ln e$, for each binary (see also \figurename~4
+in \citealt{Verbunt:1995}).
+To compute this quantity, we use a model stellar evolution track to integrate
+\eqname~\ref{eq:dlne} up to the measured \logg\ of each primary star.
 In detail, we use \acronym{MESA} (\citealt{Paxton:2011}) to follow the stellar
 evolution of a $M_1 = 1.4~\msun$ star with solar metallicity from the
-pre-main-sequence phase to the asymptotic giant branch phase.
+pre-main-sequence phase to the asymptotic giant branch (AGB) phase.
 For each \apogee\ star, we use linear interpolation with the output of this
 evolutionary model to solve for the eccentricity change starting from the time
 the star leaves the main sequence up to the phase at which the model has the
@@ -404,15 +399,14 @@ $\med{\logg} = 3.1$.
 We assume $M_2 = M_{2, \textrm{min}}$ when generating companion masses.
 
 We generate eccentricities $e$ by sampling from a uniform distribution.
-\todo{Check all of this BS}
 We note that theoretical predictions of the binary star eccentricity
 distribution over this period range would predict a thermalized eccentricity
-distribution $p(e) = 2e$ (\citealt{WHO}), but the observed eccentricity
+distribution $p(e) = 2e$ (\citealt{Jeans:1919}), but the observed eccentricity
 distributions of main sequence binary star systems with periods $10 < P <
-1000~\textrm{day}$ is biased by selection effects and ...
-We therefore use a uniform distribution for simplicity, but note that our
-comparison with this simulated population does not depend strongly on this
+1000~\textrm{day}$ is broadly consistent with flat (\citealt{Duchene:2013}).
+Our comparison with this simulated population does not depend strongly on this
 choice of initial eccentricity distribution.
+
 We generate initial binary orbital periods, $P$, by assuming a distribution that
 is uniform in $\ln P$ between $(\Psurf, 8192)~\textrm{day}$.
 \figurename~\ref{fig:simulated} (left) shows the initial periods and
@@ -420,14 +414,14 @@ eccentricities of the simulated systems.
 Markers are colored by the mass of the primary, $M_1$, and the size of the
 marker indicates the log-surface gravity, \logg.
 
-To follow the stellar evolution of the primary, we run stellar evolution models
-using \acronym{MESA} (\citealt{Paxton:2011}) for stars with $M = [0.8, 1, 1.2,
-1.4, 1.6, 1.8, 2, 2.5, 3]~\msun$ and solar metallicity.
+To follow the stellar evolution of the primary stars, we run stellar evolution
+models using \acronym{MESA} (\citealt{Paxton:2011}) for stars with $M = [0.8, 1,
+1.2, 1.4, 1.6, 1.8, 2, 2.5, 3]~\msun$ and solar metallicity.
 \figurename~\ref{fig:mesa} shows evolutionary tracks in surface gravity and
 effective temperature for each of these models.
 We follow the evolution from the pre-main-sequence phase until the AGB phase,
-but only use the post-main-sequence evolution when evolving the orbit of the
-binary.
+but again only use the post-main-sequence evolution when evolving the orbit of
+the binary.
 At each timestep during the evolution, we output and store the standard stellar
 parameters along with the size and mass of the convective envelope.
 
@@ -469,19 +463,22 @@ Finally, we assume that all of our systems are detached binaries.
 \figurename~\ref{fig:simulated} (middle) shows the final periods and
 eccentricities of the simulated systems.
 As expected, the circularization period for higher \logg\ systems (i.e. smaller
-radii, smaller markers) appears to be close to $\sim 10~\textrm{day}$, but the
-circularization period for stars with lower \logg\ (i.e. larger radii, larger
+radii, lighter markers) appears to be close to $\sim 10~\textrm{day}$, but the
+circularization period for stars with lower \logg\ (i.e. larger radii, darker
 markers) is closer to $\sim 100~\textrm{day}$.
 In the right panel we normalize the orbital period by \Psurf:
 This rescaling removes the dependence on primary size or \logg\ and predicts
 that circularization should occur around $P / \Psurf \approx 10$.
-% except for a few systems that are just reaching the subgiant phase (still have
-% high \logg, small markers) apparent in the lower left region of the right panel.
+The simulated systems that remain very eccentric, $e \gtrsim 0.6$, with periods
+$P / \Psurf < 10$ are likely a relic of the fact that \eqname
+s~\ref{eq:dlne}--\ref{eq:dlna} break down when $e \sim 1$ (e.g.,
+\citealt{Hut:1981}).
 
 The sharp transition in eccentricity around $P/\Psurf \approx 10$ observed in
 the sample of \apogee\ binaries (\figurename~\ref{fig:PeK}, left) is therefore
 qualitatively consistent with predictions from this simulated population
 (\figurename~\ref{fig:simulated}, right).
+
 
 % Notebook: Simulated population
 \begin{figure}[htbp]
@@ -517,23 +514,24 @@ Here we return to the assumptions made above and assess their applicability:
     about the binary component masses (see \emph{Primary/companion masses}
     above).
     It is therefore interesting that we see such a sharp transition in the
-    eccentricity distribution (e.g., \figurename~\ref{fig:PeK}, left panel), and
-    good agreement with predictions from population synthesis and evolution of
-    the simulated binaries (\sectionname~\ref{sec:theory}).
+    eccentricity distribution (\figurename~\ref{fig:PeK}, left panel), and good
+    agreement with predictions from population synthesis and evolution of the
+    simulated binaries (\sectionname~\ref{sec:theory}).
     However, this can be understood given the scaling of the circularization
     timescale (\eqname~\ref{eq:tcirc}) and the mass distribution of stars with
     measured masses (\figurename~\ref{fig:apogee})
 
     Assuming a mass ratio $q = 0.3$, the circularization timescale close to the
     circularization period, $P / \Psurf \approx 10$, is very small compared to
-    the lifetime on the giant branch $t_\textrm{circ} \sim 10^5~\textrm{yr}$.
-    This quantity scales with the inverse mass ratio squared and the cubed-root
-    of the primary mass, $t_\textrm{circ} \propto M_1^{1/3} \, \left[ q \, (1 +
-    q) \right]^{-1}$:
+    the lifetime on the giant branch for a $1.4~\msun$ star, $t_\textrm{circ}
+    \sim 10^5~\textrm{yr} \ll t_\textrm{RGB} \sim 10^8~\textrm{yr}$.
+    The circularization time scales with the inverse mass ratio squared and the
+    cubed-root of the primary mass, $t_\textrm{circ} \propto M_1^{1/3} \, \left[
+    q \, (1 + q) \right]^{-1}$:
     The small spread in primary masses can therefore be neglected, and
-    variations in the mass ratio by typical factors of $\sim 2$ still lead to
-    circularization timescales that are much shorter than the giant branch
-    lifetime.
+    variations in the mass ratio by typical factors of $\sim 2$
+    (\figurename~\ref{fig:apogee}still lead to circularization timescales that
+    are much shorter than the giant branch lifetime.
     For the sample of binaries considered here, the simple assumptions about
     primary and companion masses are therefore reasonable.
     \item[Primary evolved first] All of the binaries in our sample appear to be
@@ -569,21 +567,26 @@ These binaries have short periods and large eccentricities that appear to be
 discrepant with our conclusions made about tidal circularization.
 Of these 10 systems, 6 have the warning flag \texttt{SUSPECT\_BROAD\_LINES} from
 the \apogee\ pipeline, which suggests that these primary stars are either fast
-rotators (i.e. young) or may contain blended light from the companion star; The
-inferred eccentricities for these systems may therefore be biased.
+rotators or may contain blended light from the companion star; The inferred
+eccentricities for these systems may therefore be biased.
 The remaining 4 systems are listed in \tablename~\ref{tbl:except} and warrant
 further study to understand why they have not circularized.
+One possibility is that these are actually triple systems with misaligned,
+long-period companions: The outer body could drive the eccentricity of the inner
+companion through Kozai-Lidov oscillations (\citealt{Kozai:1962, Lidov:1962}).
+Verifying this would require long-term radial velocity monitoring of these
+systems.
 
 \begin{table}[h]
     \centering
-    \begin{tabular}{ c c c c c }
+    \begin{tabular}{ c c c c c c }
     \hline
-    \texttt{APOGEE\_ID} & \logg\ & \Teff\ [K] & $P$ [day] & $e$ \\
+    \texttt{APOGEE\_ID} & \logg\ & \Teff\ [K] & $P$ [day] & $P/\Psurf$ & $e$ \\
     \hline
-    2M05272385+1246432 & 3.55 & 4791 & 1.05 & 0.15\\
-    2M11482364+3504215 & 3.47 & 4440 & 3.69 & 0.32\\
-    2M15042105+2700026 & 2.41 & 4663 & 36.68 & 0.61\\
-    2M16503620-0054432 & 3.52 & 5010 & 3.98 & 0.38\\
+    2M05272385+1246432 & 3.55 & 4791 & 1.05 & 1.7 & 0.15\\
+    2M11482364+3504215 & 3.47 & 4440 & 3.69 & 3.6 & 0.32\\
+    2M15042105+2700026 & 2.41 & 4663 & 36.68 & 2.5 & 0.61\\
+    2M16503620-0054432 & 3.52 & 5010 & 3.98 & 3.8 & 0.38\\
     \hline
     \end{tabular}
     \caption{Four systems that have small ratios $P/\Psurf$ but still have
@@ -611,7 +614,7 @@ was at the tip of the giant branch.
 
 \section{Conclusions}
 
-We select binary star systems with well-determined orbital properties from a
+We selected binary star systems with well-determined orbital properties from a
 catalog of binaries identified using repeat radial velocity measurements from
 the \apogee\ survey (\citealt{Price-Whelan:2018}).
 Because of the selection function for \apogee, the majority of these systems
@@ -624,7 +627,7 @@ red clump stars (\figurename~\ref{fig:apogee}).
 As has been seen in many other samples of binary star systems, we find that the
 short period systems have small or zero eccentricities, but above a
 characteristic circularization period the systems have a range of
-eccentricities; this circularization period depends on the stellar parameters of
+eccentricities; This circularization period depends on the stellar parameters of
 the primary (evolved) star in the system (\figurename~\ref{fig:P-e-grid}).
 If we normalize the orbital periods by the orbital period of the system with a
 hypothetical companion whose orbit just grazes the surface of the primary star
@@ -639,7 +642,7 @@ circularization theory for stars with significant convective envelopes
 (\citealt{Zahn:1977, Zahn:1989, Verbunt:1995}).
 
 The \apogee\ survey was not designed to do binary star science
-(\citealt{Majewski:2017}), but has enabled a wealth of stellar companion studies
+(\citealt{Majewski:2017}), but has enabled a number of stellar companion studies
 because it returns to fields as a part of its survey strategy
 (\citealt{Troup:2016, Badenes:2018, Price-Whelan:2018}).
 Future data releases from \apogee\ will provide more visits for current stars
