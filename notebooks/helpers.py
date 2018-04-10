@@ -81,9 +81,9 @@ class MatchedSimulatedSample:
 
         # Fundamental properties
         t['logg'] = self.sample_logg(size)
-        t['e'] = self.rnd.beta(1., 2, size)
         t['M1_orig'] = self.sample_m1(size=size)
         t['M2'] = self.sample_m2(t['M1_orig'])
+        t['e'] = self.rnd.uniform(0, 1, size)
 
         # Computed quantities
         g = 10**t['logg'] * u.cm/u.s**2
