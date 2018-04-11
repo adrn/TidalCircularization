@@ -10,6 +10,7 @@ from astropy.table import QTable
 import numpy as np
 from scipy.integrate import simps
 from scipy.interpolate import interp1d
+from scipy.stats import truncnorm
 from sklearn.neighbors.kde import KernelDensity
 from sklearn.mixture import GaussianMixture
 
@@ -83,7 +84,12 @@ class MatchedSimulatedSample:
         t['logg'] = self.sample_logg(size)
         t['M1_orig'] = self.sample_m1(size=size)
         t['M2'] = self.sample_m2(t['M1_orig'])
-        t['e'] = self.rnd.uniform(0, 1, size)
+
+        mu = 0.4
+        sig = 0.3
+        a = (0 - mu) / sig
+        b = (1 - mu) / sig
+        t['e'] = truncnorm.rvs(loc=mu, scale=sig, a=a, b=b, size=size)
 
         # Computed quantities
         g = 10**t['logg'] * u.cm/u.s**2

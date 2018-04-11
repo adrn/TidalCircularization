@@ -398,12 +398,16 @@ $\med{M_1} = 1.4~\msun$, $\med{M_{2, \textrm{min}}} = 0.4~\msun$, and
 $\med{\logg} = 3.1$.
 We assume $M_2 = M_{2, \textrm{min}}$ when generating companion masses.
 
-We generate eccentricities $e$ by sampling from a uniform distribution.
+We generate eccentricities $e$ by sampling from a truncated normal distribution
+with mean and standard deviation $(\mu, \sigma) = (0.4, 0.3)$, truncated to the
+domain $e \elem [0, 1)$.
 We note that theoretical predictions of the binary star eccentricity
 distribution over this period range would predict a thermalized eccentricity
 distribution $p(e) = 2e$ (\citealt{Jeans:1919}), but the observed eccentricity
 distributions of main sequence binary star systems with periods $10 < P <
-1000~\textrm{day}$ is broadly consistent with flat (\citealt{Duchene:2013}).
+1000~\textrm{day}$ is broadly consistent with being flat for moderate
+eccentricities, with fewer very low and high eccentricities
+(\citealt{Duchene:2013}).
 Our comparison with this simulated population does not depend strongly on this
 choice of initial eccentricity distribution.
 
