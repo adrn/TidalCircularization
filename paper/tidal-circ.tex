@@ -119,6 +119,8 @@ Many studies have measured the ``circularization period,'' predominantly for
 main-sequence binaries (e.g., \citealt{Latham:2002, Meibom:2006,
 Kjurkchieva:2017}), and have found that it tends to be between 5--20 days,
 depending on age (e.g., \citealt{Mathieu:1988}).
+This also appears to be consistent with the period and eccentricity
+distributions for ``heartbeat'' stars (\citealt{Shporer:2016}).
 For giant stars, the circularization period appears to be longer, closer to
 $\approx 100$ days (e.g., \citealt{Mayor:1984, Bluhm:2016}), but fewer systems
 with giant star members have been studied.
@@ -347,7 +349,8 @@ To compute $\Delta \ln e$, we use a model stellar evolution track to integrate
 \eqname~\ref{eq:dlne} up to the measured \logg\ of each primary star.
 In detail, we use \acronym{MESA} (\citealt{Paxton:2011}) to follow the stellar
 evolution of a $M_1 = 1.4~\msun$ star with solar metallicity from the
-pre-main-sequence phase to the asymptotic giant branch (AGB) phase.
+pre-main-sequence phase to the asymptotic giant branch (AGB) phase (we stop the
+models when they first reach $\logg = 0$).
 For each \apogee\ star, we use linear interpolation with the output of this
 evolutionary model to solve for the eccentricity change starting from the time
 the star leaves the main sequence up to the phase at which the model has the
