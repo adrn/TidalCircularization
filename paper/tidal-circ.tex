@@ -1,3 +1,9 @@
+% TODO:
+% - Update astropy reference
+% - Update Price-Whelan 2018 reference
+% -
+
+
 \documentclass[modern, letterpaper]{aastex62}
 % \documentclass[twocolumn, letterpaper]{aastex62}
 
@@ -29,7 +35,7 @@
 \newcommand{\nclean}{234}
 
 % for response to referee
-% \renewcommand{\resp}[1]{#1}
+\renewcommand{\changes}[1]{\textbf{#1}}
 
 \shortauthors{Price-Whelan et al.}
 
@@ -74,7 +80,7 @@ interactions that lead to tighter, more circular orbits.
 When at least one star in a binary has evolved off of the main sequence, orbital
 circularization occurs for longer-period ($\approx 100~\textrm{day}$) systems.
 Past work by \citet{Verbunt:1995} has shown that the orbital parameters and the
-circularization periods of a small sample of binary stars with evolved-star
+\changes{transition} periods of a small sample of binary stars with evolved-star
 members can be understood within the context of standard tidal circularization
 theory.
 % Aims
@@ -83,11 +89,13 @@ is nearly an order of magnitude larger, we reexamine predictions for tidal
 circularization of binary stars with evolved members.
 % Methods
 % Results
-We confirm that systems predicted by equilibrium-tide theory to have circular
-orbits generally have negligible measured eccentricities.
-The circularization period is correlated with the surface gravity (i.e. size) of
-the evolved member, indicating that the circularization timescale must be
-shorter than the evolutionary timescale along the giant branch.
+\changes{We confirm that binary-star systems in our sample predicted to have
+circular orbits (using equilibrium-tide theory) generally have negligible
+measured eccentricities.}
+\changes{At fixed stellar mass,} the \changes{transition} period is correlated
+with the surface gravity (i.e. size) of the evolved member, indicating that the
+circularization timescale must be shorter than the evolutionary timescale along
+the giant branch.
 A few exceptions to the conclusions above are mentioned in the discussion: Some
 of these exceptions are likely systems in which the spectrum of the secondary
 biases the radial velocity measurements, but four appear to be genuine,
@@ -112,16 +120,15 @@ short-period binaries tend to have smaller eccentricities as compared to
 longer-period binaries of the same age (e.g., \citealt{Mathieu:2005}).
 Within a given population of binaries, this manifests as an apparently steep
 transition from a spread in eccentricities to mainly circularized orbits.
-The transition occurs around a characteristic period that depends on the age and
-evolutionary state of the population (see, e.g., \figurename~5 in
+The transition occurs around a characteristic period \changes{--- the
+``circularization period'' or ``transition period'' ---} that depends on the age
+and evolutionary state of the population (see, e.g., \figurename~5 in
 \citealt{Mathieu:2005}).
-Many studies have measured the ``circularization period,'' predominantly for
+Many studies have measured this \changes{transition} period, predominantly for
 main-sequence binaries (e.g., \citealt{Latham:2002, Meibom:2006,
 Kjurkchieva:2017}), and have found that it tends to be between 5--20 days,
 depending on age (e.g., \citealt{Mathieu:1988}).
-This also appears to be consistent with the period and eccentricity
-distributions for ``heartbeat'' stars (\citealt{Shporer:2016}).
-For giant stars, the circularization period appears to be longer, closer to
+For giant stars, the \changes{transition} period appears to be longer, closer to
 $\approx 100$ days (e.g., \citealt{Mayor:1984, Bluhm:2016}), but fewer systems
 with giant star members have been studied.
 These observed trends are likely a result of orbital circularization rather than
@@ -129,12 +136,15 @@ a manifestation of binary star formation, as the circularization or transition
 period appears to vary with the age of the population (\citealt{Meibom:2005}).
 
 Theories that explain orbital circularization generally rely on tidal
-dissipation to predict the timescale and efficiency of this phenomenon (see
-\citealt{Mazeh:2007hp, Zahn:2008} for recent reviews).
+dissipation to predict the timescale and efficiency of this phenomenon,
+\changes{which set predictions for the transition period for a stellar
+population with a range of masses and/or ages (see \citealt{Mazeh:2007hp,
+Zahn:2008} for recent reviews).}
 For stars with deep convective zones (and especially evolved stars), the
 equilibrium tide theory for circularization (\citealt{Zahn:1977, Zahn:1989}) has
-been shown to reasonably reproduce the circularization periods of a small sample
-of binaries with giant star members in open clusters (\citealt{Verbunt:1995}).
+been shown to reasonably reproduce the \changes{transition} periods of a small
+sample of binaries with giant star members in open clusters
+(\citealt{Verbunt:1995}).
 In this theory, the tidal bulge induced on the primary (evolved) star will lag
 the orbital motion of the companion because of coupling of the tidal flow to
 turbulent eddies driven by convection.
@@ -163,13 +173,20 @@ star system is given by
 where $L_1, M_1, R_1$ are the luminosity, mass, and radius of the primary
 (evolved) star, $M_{\textrm{env}}$ is the mass of the convective envelope of the
 primary, $q = M_2 / M_1$ is the binary mass ratio, $a$ is the binary semi-major
-axis, and $f$ is a dimensionless factor of order unity that depends on the
-convective and dissipative properties of the convective envelope
+axis, $f$ is a dimensionless factor of order unity that depends on the
+convective and dissipative properties of the convective envelope, \changes{and $t_{\textrm{circ}}$ is the characteristic circularization timescale.}
 (\citealt{Zahn:1977, Zahn:1989, Verbunt:1995}).
 Following \citet{Verbunt:1995}, we set $f=1$.
-Note that the expressions above are derived assuming $e \ll 1$:
-$t_\textrm{circ}$ is expected to be somewhat shorter for high-eccentricity
-systems (e.g., \citealt{Hut:1981}).
+\changes{Numerical simulations indicate that the observed transition period can be interpreted as the orbital period at which a binary system with initial eccentricity $e \sim 0.3$ evolves to have negligible eccentricity ($e \lesssim 0.01$) at the age of the population.
+TODO: expression related to t_circ?
+}
+
+\changes{The expressions above are linearized and thus are only strictly correct for small initial eccentricities (\citealt{}).
+However, these expressions have been shown to explain the observed binary period-eccentricity distributions in several stellar clusters over a range of ages ($<10~\textrm{Myr}$--$10~\textrm{Gyr}$; \citealt{Meibom:2005}), even for systems with high eccentricities ($e \lesssim 0.8$).
+While circularization is expected to be less efficient for very high-eccentricity systems (e.g., \citealt{Goldman:1991, Goodman:1997}), TODO successfully predict the upper envelope of the eccentricity distribution as a function of period even for high-eccentricity ``heartbeat'' star systems (\citealt{Shporer:2016}).
+}
+
+% "If the duration of the tidal perturbation at periastron passage is shorter than the convective turnover time, the efficiency of tidal coupling may be significantly reduced" - http://cds.cern.ch/record/976941/files/0608154.pdf
 
 The steep $\left(R_1 / a\right)^8$ scaling in \eqname~\ref{eq:tcirc}
 implies that, for a given binary, even small changes in the radius of the
@@ -179,19 +196,20 @@ expect orbital circularization to occur rapidly when the primary begins to
 evolve.
 Further, if the circularization timescale (\eqname~\ref{eq:tcirc}) remains short
 compared to the evolutionary timescale along the subgiant and giant branches,
-then the circularization period of a sample of binary stars should correlate
-with the present-day radius or evolutionary state of the primary.
+then the \changes{transition} period of a sample of binary stars should
+correlate with the present-day radius or evolutionary state of the primary.
 
 Using a sample of $>200$ binary star systems with at least one evolved member,
-we study the circularization period along the giant branch.
-We show that indeed the inferred circularization period is a function of the
-surface gravity of the primary star, and thus that orbital circularization must
-occur faster than post-main-sequence stellar radius and structure evolution.
+we study the \changes{transition} period along the giant branch.
+We show that indeed the inferred \changes{transition} period is a function of
+the surface gravity of the primary star.
+\changes{We therefore conclude that, for binary star systems with one evolved member, orbital circularization must occur faster than the timescale of stellar radius and structure evolution of post-main-sequence stars.}
 
-% In \sectionname~\ref{sec:data}, we describe the original data source and catalog
-% of binary star systems used in this work.
-% In \sectionname~\ref{sec:results}, we show how the circularization period changes in bins of primary-star surface gravity.
-% In \sectionname~\ref{sec:discussion}, we discuss \todo{...}
+In \sectionname~\ref{sec:data}, we describe the original data source and catalog of binary star systems used in this work.
+In \sectionname~\ref{sec:results}, we present period-eccentricity distributions as a function of primary star properties and compare with predictions from equilibrium tide theory.
+In \sectionname~\ref{sec:theory}, we produce simulated populations of binary systems using equilibrium tide theory that qualitatively match the observed distributions.
+In \sectionname~\ref{sec:discussion}, we discuss assumptions and caveats with this work, and highlight a few interesting systems that would benefit from follow-up observations.
+We conclude in \sectionname~\ref{sec:conclusions}.
 
 % Past work on samples of binary systems with giant star members showed
 % that, while main sequence binaries have circularization periods near $\sim
@@ -214,9 +232,9 @@ occur faster than post-main-sequence stellar radius and structure evolution.
 Effective temperatures, \Teff, and surface gravities, \logg, are from the
 \apogee\ \DR\ catalog.
 \textit{Middle}: Primary masses for 68 systems with masses estimated in
-\cite{Ness:2015}.
+\cite{Ness:2016}.
 \textit{Right}: Minimum mass ratios computed using primary masses from
-\cite{Ness:2015} and companion masses estimated from orbital parameters from
+\cite{Ness:2016} and companion masses estimated from orbital parameters from
 \cite{Price-Whelan:2018}.
 \label{fig:apogee}
 }
@@ -226,8 +244,14 @@ To identify binaries, we use sources with repeat radial velocity measurements in
 data release 14 (\DR) of the \apogee\ survey
 (\citealt{Majewski:2017,Abolfathi:2017}), a component of the Sloan Digital Sky
 Survey IV (\sdssiv; \citealt{Gunn:2006,Blanton:2017}).
+\changes{\apogee\ is a medium-resolution ($R \sim XX$), mid-infrared ($H$-band) spectroscopic survey that uses the SDSS telescope in the northern hemisphere to survey (primarily) red stars throughout the Galaxy.
+The primary objective of the survey is to determine kinematics and chemical abundances for a large sample of Milky Way stars to study the evolution and dynamical state of the Galaxy \citealt{Majewski:2017}.
+For the key components of the survey, targets are selected using simple color and magnitude cuts designed to primarily target bright, distant (i.e. giant) stars (\citealt{Zasowski:2013}).
+However, to meet signal-to-noise requirements for faint targets, many fields are observed multiple times and therefore provide limited time-domain radial velocity measurements (e.g., \citealt{Nidever:2015}).
+We have used the time-domain radial velocity measurements from \apogee\ \DR\ to search for and characterize binary star systems;
 A full description of our search methodology and binary star catalogs can be
 found in companion work (\citealt{Price-Whelan:2018}).
+}
 
 Briefly, we use a custom-built Monte Carlo sampler (\package{The Joker};
 \citealt{Price-Whelan:2017}) to generate posterior samples over binary orbital
@@ -240,18 +264,19 @@ However, the majority of these systems have too few radial velocity measurements
 to uniquely determine the binary orbital parameters.
 
 Here, we consider only \nunimodal\ binary systems for which the period and
-eccentricity can be uniquely determined (the ``high-$K$, unimodal'' sample of
-\citealt{Price-Whelan:2018}).
+eccentricity can be uniquely determined \changes{from the radial velocity data
+alone} (the ``high-$K$, unimodal'' sample of \citealt{Price-Whelan:2018}).
 We further subselect the \nclean\ primary stars with $\logg > 2$ that pass
 visual inspection (from previous work, \texttt{clean\_flag == 0}; see
 \sectionname~5.2 in \citealt{Price-Whelan:2018}).
 We note that because of the sparse time sampling of the \apogee\ survey, we
 expect that our detection efficiency for high-eccentricity systems is poor, but
 do not expect biases for low-eccentricity systems.
-\figurename~\ref{fig:apogee}, left panel, shows the stellar parameters for all
+\figurename~\ref{fig:apogee}, left panel, shows the stellar parameters (surface
+gravity, $\log g$, and effective temperatue, $T_{\textrm{eff}}$) for all
 \nclean\ primary stars in the sample used in this work, middle panel shows the
 distribution of primary masses for the 68 systems with masses from
-\cite{Ness:2015}, and right panel shows the minimum mass ratios for the 68
+\cite{Ness:2016}, and right panel shows the minimum mass ratios for the 68
 systems.
 
 
@@ -260,20 +285,20 @@ systems.
 
 Our sample of binaries contains primary stars with a range of stellar parameters
 (\figurename~\ref{fig:apogee}), and therefore a range of expected
-circularization periods.
+\changes{transition} periods.
 \figurename~\ref{fig:P-e-grid} shows orbital period and eccentricity for all
 systems in bins of primary surface gravity:
 From top left to bottom right shows bins of decreasing surface gravity, i.e.
 from subgiants to giant branch stars.
 Vertical dashed lines at $10~\textrm{day}$ and $100~\textrm{day}$ are meant as
 reference lines.
-Note the steadily increasing circularization period from top left to bottom
+Note the steadily increasing \changes{transition} period from top left to bottom
 right as the typical size of the primary increases.
 
 To remove the dependence on the size of the primary, \figurename~\ref{fig:PeK}
 (left) shows period and eccentricity but now with periods normalized by the
-orbital period at which the minimum separation of the binary is equal to the
-surface size of the primary star,
+orbital period at which the minimum separation of \changes{the centers of mass
+of the binary star components} is equal to the surface size of the primary star,
 \begin{align}
     \Psurf &= 2\pi \,
         \left(\frac{G \, (M_1+M_2)}{R_1^3}\right)^{-1/2} \,
@@ -309,10 +334,10 @@ We compute \Psurf\ for all systems under the following assumptions:
 Orbital period and eccentricity for all systems considered in this work.
 Each panel shows systems in the specified bin of primary surface gravity, \logg.
 Vertical gray lines show periods of $10~\textrm{day}$ and $100~\textrm{day}$:
-binaries with subgiant members (top left) show circularization periods close to
-$10~\textrm{day}$, whereas binaries with RGB members (bottom right) show
-circularization periods close to $100~\textrm{day}$.
-Intermediate bins show steadily increasing circularization periods with
+binaries with subgiant members (top left) show \changes{transition} periods
+close to $10~\textrm{day}$, whereas binaries with RGB members (bottom right)
+show \changes{transition} periods close to $100~\textrm{day}$.
+Intermediate bins show steadily increasing \changes{transition} periods with
 decreasing \logg.
 \label{fig:P-e-grid}
 }
@@ -402,7 +427,7 @@ surface gravities by fitting two-component Gaussian mixture models (GMMs) to the
 stars in our sample with measurements of each, then re-sample using the fitted
 distributions.
 As described in previous work (\citealt{Price-Whelan:2018}), primary mass
-measurements come from \cite{Ness:2015}, secondary (minimum) masses come from
+measurements come from \cite{Ness:2016}, secondary (minimum) masses come from
 the posterior samplings over orbital parameters using \apogee\ radial velocity
 data, and surface gravities come from the \apogee\ (\DR) data reduction pipeline
 (\citealt{Garcia-Perez:2016}).
@@ -479,10 +504,10 @@ Finally, we assume that all of our systems are detached binaries.
 
 \figurename~\ref{fig:simulated} (middle) shows the final periods and
 eccentricities of the simulated systems.
-As expected, the circularization period for higher \logg\ systems (i.e. smaller
-radii, lighter markers) appears to be close to $\sim 10~\textrm{day}$, but the
-circularization period for stars with lower \logg\ (i.e. larger radii, darker
-markers) is closer to $\sim 100~\textrm{day}$.
+As expected, the \changes{transition} period for higher \logg\ systems (i.e.
+smaller radii, lighter markers) appears to be close to $\sim 10~\textrm{day}$,
+but the \changes{transition} period for stars with lower \logg\ (i.e. larger
+radii, darker markers) is closer to $\sim 100~\textrm{day}$.
 In the right panel we normalize the orbital period by \Psurf:
 This rescaling removes the dependence on primary size or \logg\ and predicts
 that circularization should occur around $P / \Psurf \approx 10$.
@@ -540,15 +565,15 @@ Here we return to the assumptions made above and assess their applicability:
     measured masses (\figurename~\ref{fig:apogee})
 
     Assuming a mass ratio $q = 0.3$, the circularization timescale close to the
-    circularization period, $P / \Psurf \approx 10$, is very small compared to
-    the lifetime on the giant branch for a $1.4~\msun$ star, $t_\textrm{circ}
+    \changes{transition} period, $P / \Psurf \approx 10$, is very small compared
+    to the lifetime on the giant branch for a $1.4~\msun$ star, $t_\textrm{circ}
     \sim 10^5~\textrm{yr} \ll t_\textrm{RGB} \sim 10^8~\textrm{yr}$.
     The circularization time scales with the inverse mass ratio squared and the
     cubed-root of the primary mass, $t_\textrm{circ} \propto M_1^{1/3} \, \left[
     q \, (1 + q) \right]^{-1}$:
     The small spread in primary masses can therefore be neglected, and
     variations in the mass ratio by typical factors of $\sim 2$
-    (\figurename~\ref{fig:apogee}still lead to circularization timescales that
+    (\figurename~\ref{fig:apogee}) still lead to circularization timescales that
     are much shorter than the giant branch lifetime.
     For the sample of binaries considered here, the simple assumptions about
     primary and companion masses are therefore reasonable.
@@ -628,13 +653,14 @@ panel of \figurename~\ref{fig:simulated}: In the simulated population, these are
 simply systems that started with lower eccentricities and thus can evolve faster
 to $e \approx 0$.
 In the observed systems, we expect the ``spur'' of low-eccentricity systems at
-periods longer than the circularization period to be a mix of systems that
+periods longer than the \changes{transition} period to be a mix of systems that
 started with lower eccentricity, systems in which the companion has already
 evolved, and a minority of red clump stars that circularized when the primary
 was at the tip of the giant branch.
 
 
 \section{Conclusions}
+\label{sec:conclusions}
 
 We selected binary star systems with well-determined orbital properties from a
 catalog of binaries identified using repeat radial velocity measurements from
@@ -648,18 +674,19 @@ red clump stars (\figurename~\ref{fig:apogee}).
 
 As has been seen in many other samples of binary star systems, we find that the
 short period systems have small or zero eccentricities, but above a
-characteristic circularization period the systems have a range of
-eccentricities; This circularization period depends on the stellar parameters of
-the primary (evolved) star in the system (\figurename~\ref{fig:P-e-grid}).
+characteristic \changes{transition} period the systems have a range of
+eccentricities; This \changes{transition} period depends on the stellar
+parameters of the primary (evolved) star in the system
+(\figurename~\ref{fig:P-e-grid}).
 If we normalize the orbital periods by the orbital period of the system with a
 hypothetical companion whose orbit just grazes the surface of the primary star
 (i.e. to remove the dependence on the primary star size), we find a steep
 transition from eccentric to circular orbits that occurs around $P / \Psurf
 \approx 10$.
-This dimensionless circularization period is consistent with theoretical
+This dimensionless \changes{transition} period is consistent with theoretical
 predictions (\figurename~\ref{fig:simulated}):
-We find that the eccentricities and observed circularization periods of binary
-star systems with evolved members can be explained using standard tidal
+We find that the eccentricities and observed \changes{transition} periods of
+binary star systems with evolved members can be explained using standard tidal
 circularization theory for stars with significant convective envelopes
 (\citealt{Zahn:1977, Zahn:1989, Verbunt:1995}).
 
